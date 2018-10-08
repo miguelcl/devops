@@ -12,8 +12,8 @@
 
 
 
-URL_JENK="http://besp.falabella.com/core/jenkins/"
-URL_PROXY="http://user:pass@proxyfal.falabella.cl:8080"
+URL_JENK="http://internal.repo/core/jenkins/"
+URL_PROXY="http://user:pass@proxy.internal.repo:8080"
 
 ####### Descarga de informacion de repos y key
 # rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
