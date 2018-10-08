@@ -1,6 +1,4 @@
 #!/bin/bash
-#
-#
 ################################
 #
 # SCRIPT INSTALACION JENKINS
@@ -22,12 +20,12 @@ URL_PROXY="http://user:pass@proxy.internal.repo:8080"
 curl -O  /etc/yum.repos.d/jenkins.repo  $URL_JENK/jenkins.repo
 rpm --import 							$URL_JENK/jenkins-ci.org.key
 
-### if exist proxy set global proxy setting.
+###
 export http_proxy=$URL_PROXY
 
 ### Instalacion jenkins from rpm
-yum install java
-yum install jenkins
+yum -y install java
+yum -y install jenkins
 
 /sbin/chkconfig jenkins on
 
@@ -36,3 +34,7 @@ systemctl stop jenkins.service
 systemctl start jenkins.service
 
 netstat -putan | grep jenkins
+
+PASS=$(cat /var/lib/jenkins/secrets/initialAdminPassword)
+printf "\t Usuario Jenkins: admin \n\t Clave   Jenkins: $PASS \n"
+
